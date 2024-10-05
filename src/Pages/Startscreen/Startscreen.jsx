@@ -6,18 +6,13 @@ function Startscreen({onClick}) {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-
             setTrigerChange(true);
-
         } , 2000)
 
         return () => {
             clearTimeout(timer)
         }
     }, []);
-
-
-
     return (
     <>
         {!triggerChange && (
