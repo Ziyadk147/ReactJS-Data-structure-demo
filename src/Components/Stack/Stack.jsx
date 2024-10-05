@@ -1,6 +1,6 @@
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 
-export default function Stack(){
+export default function Stack({Stack}){
     return (
         <div className={"flex flex-col"}>
             <motion.div
@@ -12,12 +12,25 @@ export default function Stack(){
 
                 <>
                     <div className="border-amber-100 border-2 w-80 h-96 flex  flex-col-reverse ">
-                        <div className="h-24 rounded-xl bg-blue-500 flex justify-center items-center">
-                            <h1 className={"text-center "}>
-                                Box 1
-                            </h1>
-                        </div>
-                        <div className="flex-grow"></div>
+
+                        <AnimatePresence>
+                            {Stack.map((stackItem) => (
+                                <motion.div
+                                    key={stackItem}  // Use a unique identifier as key
+                                    initial={{y: -10, opacity: 0}}
+                                    animate={{y: 0, opacity: 1}}
+                                    exit={{y: 10, opacity: 0}}  // Exit animation: down + fade out
+                                    transition={{duration: 0.5}}
+                                    className="h-24 rounded-xl bg-red-500 flex justify-center items-center m-2"
+                                >
+                                    <h1 className="text-center">{stackItem}</h1>
+
+                                </motion.div>
+
+                            ))}
+                            <div className="flex-grow"></div>
+
+                        </AnimatePresence>
                     </div>
                     <h1 className={"font-bold text-stone-100 text-3xl mt-5"}>Stack</h1>
 

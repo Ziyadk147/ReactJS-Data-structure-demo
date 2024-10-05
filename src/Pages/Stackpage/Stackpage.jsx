@@ -1,9 +1,17 @@
 import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import Stack from "../../Components/Stack/Stack.jsx";
+import AnimatedButtonList from "../../Components/AnimatedButtonList/AnimatedButtonList.jsx";
+import AnimatedDescription from "../../Components/AnimatedDescription/AnimatedDescription.jsx";
+import 'prismjs/themes/prism-tomorrow.css'; // or any theme you prefer
+import Prism from 'prismjs'
+import Codeblock from "../../Components/CodeBlock/Codeblock.jsx";
 
-export default function Stackpage() {
+export default function Stackpage({onClick}) {
+
     const [triggerChange , setTriggerChange] = useState(false);
+    const [stackArray , setStackArray ] = useState([])
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setTriggerChange(true)
@@ -12,11 +20,37 @@ export default function Stackpage() {
             clearTimeout(timer)
         }
     }, []);
+
+    useEffect(() => {
+        Prism.highlightAll()
+    }, []);
+
+    function handleClick(value){
+        if(value === "push" && stackArray.length <= 4){
+            setStackArray((prevState) => [...prevState , prevState.length + 1])
+        }
+        else if(value === "pop"){
+            setStackArray( ( prevState ) => prevState.slice(0 , -1) )
+        }
+
+    }
+    const buttonList = [
+
+         {text:"push" , onClick: handleClick},
+         {text:"pop" , onClick: handleClick},
+         // {text:"peek" , onClick: handleClick},
+
+    ]
+    const stackText = "What is a Stack?\n" +
+        "A Stack is a collection of elements that follows the Last In, First Out (LIFO) principle. \n" +
+        "This means that the last element added to the stack is the first one to be removed.\n" +
+        "You can imagine a stack like a pile of books: you can only remove or add a book from the top of the pile.\n"
     return (
         <>
+
             {!triggerChange && (
                 <motion.div
-                    initial={{y: -1000, opacity: 0}}
+                    initial={{y: -100, opacity: 0}}
                     animate={{y: 0, opacity: 1}}
                     transition={{duration: 2}}
                     className={"flex justify-center items-center h-screen"}
@@ -26,12 +60,24 @@ export default function Stackpage() {
                 </motion.div>
             )}
             {triggerChange && (
-                <div className={"flex lg:flex-row flex-col justify-center items-center w-full h-screen"}>
-                    <Stack/>
+                <>
+                    <div className={"flex lg:flex-row flex-col justify-center items-center w-full h-auto"}>
 
-                </div>
+                        <Stack Stack={stackArray}/>
+                        <AnimatedButtonList buttonList={buttonList}/>
+                        <AnimatedDescription>{stackText}</AnimatedDescription>
 
-            )}
+                    </div>
+
+                    {/*<div className={"flex lg:flex-row flex-col justify-center items-center w-full h-auto"}>*/}
+                    {/*    <Codeblock></Codeblock>*/}
+
+                    {/*</div>*/}
+
+                </>
+            )
+            }
+
 
         </>
 
