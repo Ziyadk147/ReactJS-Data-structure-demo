@@ -1,9 +1,31 @@
-import { motion } from 'framer-motion';
+import Startscreen from "./Pages/Startscreen/Startscreen.jsx";
+import {useState} from "react";
 
 export default function App(){
+    const [selectedPage , setSelectedPage] = useState()
+    function handleClick(value) {
+        setSelectedPage(value);
+    }
     return (
-        <div className={"h-screen"}>
-         
+        <div className={" bg-gradient-to-l from-[#000000] via-[#1E1E1E] to-[#1E1E1E] "}>
+            {!selectedPage  && (
+                <Startscreen onClick={handleClick} />
+
+            ) }
+            {selectedPage === "stack"  && (
+                <Startscreen onClick={handleClick} />
+
+            ) }
+            {selectedPage === "queue"  && (
+                <Startscreen onClick={handleClick} />
+
+            ) }
+            {selectedPage === "linkedlist"  && (
+                <Startscreen onClick={handleClick} />
+
+            ) }
+
+
         </div>
     )
 }
