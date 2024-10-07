@@ -10,7 +10,7 @@ export default function App(){
         console.log(value)
     }
     return (
-        <div className={" bg-gradient-to-l from-[#000000] via-[#1E1E1E] to-[#1E1E1E] h-screen justify-center items-center  flex flex-col "}>
+        <div className={" bg-gradient-to-l from-[#000000] via-[#1E1E1E] to-[#1E1E1E] lg:h-screen lg:p-0 p-20 justify-center items-center flex flex-col "}>
             {!selectedPage  && (
 
                 <Startscreen onClick={handleClick} />
