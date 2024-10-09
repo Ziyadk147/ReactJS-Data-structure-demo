@@ -2,6 +2,7 @@ import Startscreen from "./Pages/Startscreen/Startscreen.jsx";
 import {useState} from "react";
 import Stackpage from "./Pages/Stackpage/Stackpage.jsx";
 import Navbar from "./Pages/Navbar/Navbar.jsx";
+import QueuePage from "./Pages/QueuePage/QueuePage.jsx";
 
 export default function App(){
     const [selectedPage , setSelectedPage] = useState()
@@ -25,7 +26,7 @@ export default function App(){
 
             ) }
             {selectedPage === "queue"  && (
-                <Startscreen onClick={handleClick} />
+                <QueuePage onClick={handleClick} />
 
             ) }
             {selectedPage === "linkedlist"  && (
