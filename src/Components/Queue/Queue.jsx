@@ -12,7 +12,7 @@ export default function Queue({Queue}){
             >
 
                 <>
-                    <div className="border-amber-100 border-2 w-96 h-52 flex  flex-row">
+                    <div className="border-amber-100 border-2 lg:w-96 w-80 h-52 flex  flex-row">
 
                         <AnimatePresence>
                             {/* eslint-disable-next-line react/prop-types */}
