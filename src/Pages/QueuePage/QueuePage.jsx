@@ -42,7 +42,7 @@ A queue is a linear data structure that follows the First In, First Out (FIFO) p
                     initial={{y: -100, opacity: 0}}
                     animate={{y: 0, opacity: 1}}
                     transition={{duration: 2}}
-                    className={"flex  justify-center items-center "}
+                    className={"flex lg:flex-row flex-col  justify-center items-center "}
                 >
                     <h1 className="text-4xl font-bold text-stone-100">Queue Data Structure</h1>
 
@@ -50,7 +50,7 @@ A queue is a linear data structure that follows the First In, First Out (FIFO) p
             )}
             {triggerChange && (
                 <>
-                    <div className={"flex lg:flex-row flex-col justify-center items-center w-screen lg:h-fit h-screen "}>
+                    <div className={"flex lg:flex-row flex-col justify-center items-center w-screen "}>
                         <Queue Queue={queueArray}/>
                         <AnimatedButtonList buttonList={buttonList}/>
                         <AnimatedDescription>{queueText}</AnimatedDescription>
