@@ -53,7 +53,7 @@ export default function Stackpage({onClick}) {
                     initial={{y: -100, opacity: 0}}
                     animate={{y: 0, opacity: 1}}
                     transition={{duration: 2}}
-                    className={"flex  justify-center items-center "}
+                    className={"flex  justify-center items-center  h-screen"}
                 >
                     <h1 className="text-4xl font-bold text-stone-100">Stack Data-Structure</h1>
 
