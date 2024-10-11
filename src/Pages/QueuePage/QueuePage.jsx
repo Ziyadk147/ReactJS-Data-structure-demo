@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Queue from "../../Components/Queue/Queue.jsx";
 import AnimatedButtonList from "../../Components/AnimatedButtonList/AnimatedButtonList.jsx";
 import AnimatedDescription from "../../Components/AnimatedDescription/AnimatedDescription.jsx";
@@ -7,7 +7,7 @@ import AnimatedDescription from "../../Components/AnimatedDescription/AnimatedDe
 export default function QueuePage({onClick}){
     const [triggerChange , setTriggerChange] = useState(false);
     const [queueArray , setQueueArray ] = useState([])
-
+    let countRef = useRef(1);
     useEffect(() => {
         const timer = setTimeout(() => {
             setTriggerChange(true)
@@ -17,12 +17,22 @@ export default function QueuePage({onClick}){
         }
     }, []);
 
-    function handleClick(value){
-        if( value === "Enqueue" && queueArray.length <= 4 ){
-            setQueueArray((prevArr) => [prevArr.length + 1 , ...prevArr])
-        }
-        else if(value === "Dequeue"){
-            setQueueArray(prevArr => prevArr.slice(0,-1))
+    function handleClick(value) {
+        if (value === "Enqueue") {
+            setQueueArray((prevArr) => {
+                if (prevArr.length < 5) {
+                    return [countRef.current++, ...prevArr];
+                }
+                return prevArr;
+            });
+        } else if (value === "Dequeue") {
+            setQueueArray((prevArr) => {
+                if (prevArr.length > 0) {
+                    countRef.current--;
+                    return prevArr.slice(1);
+                }
+                return prevArr;
+            });
         }
     }
     const buttonList =[

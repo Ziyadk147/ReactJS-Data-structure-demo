@@ -29,9 +29,8 @@ export default function App(){
                 <>
                     <Navbar onclick={handleClick} />
                     <QueuePage onClick={handleClick} />
-
                 </>
-
+            //TODO://descriptions for terminologies
             ) }
             {selectedPage === "linkedlist"  && (
                 <Startscreen onClick={handleClick} />
