@@ -21,20 +21,22 @@ export default function QueuePage({onClick}){
         if (value === "Enqueue") {
             setQueueArray((prevArr) => {
                 if (prevArr.length < 5) {
-                    return [countRef.current++, ...prevArr];
+                    const newCount = countRef.current++;
+                    return [ ...prevArr ,  newCount ]; // Add to the front of the array
                 }
-                return prevArr;
+                return prevArr; // Don't modify if the queue is full
             });
         } else if (value === "Dequeue") {
             setQueueArray((prevArr) => {
                 if (prevArr.length > 0) {
-                    countRef.current--;
-                    return prevArr.slice(1);
+                    countRef.current--; // Optionally update countRef
+                    return prevArr.slice(1); // Remove the first element of the array
                 }
-                return prevArr;
+                return prevArr; // Don't modify if the queue is empty
             });
         }
     }
+
     const buttonList =[
         {text:"Enqueue" , onClick: handleClick},
         {text:"Dequeue" , onClick: handleClick},
