@@ -21,9 +21,9 @@ export default function Queue({Queue}){
                             {Queue.map((queueItem) => (
                                 <motion.div
                                     key={queueItem}  // Use a unique identifier as key
-                                    initial={{x: -50, opacity: 0}}
+                                    initial={{x: 50, opacity: 0}}
                                     animate={{x: 0, opacity: 1}}
-                                    exit={{x: 50, opacity: 0}}  // Exit animation: down + fade out
+                                    exit={{x: -50, opacity: 0}}  // Exit animation: down + fade out
                                     transition={{duration: 0.5}}
                                     className="w-24 rounded-xl bg-red-500 flex justify-center items-center m-2"
                                 >
