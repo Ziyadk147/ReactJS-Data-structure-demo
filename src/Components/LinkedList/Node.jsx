@@ -8,7 +8,7 @@ export default function Node({ data, address ,isHead , isLastElem }) {
                 <div className={"h-auto flex lg:flex-row flex-col"}>
                     <div className="flex lg:flex-row  flex-col mx-2 justify-center items-center w-64 h-24 bg-red-500">
                         <div
-                            className="flex lg:flex-col flex-row justify-center items-center lg:border-r-4 lg:border-b-0 border-r-4 h-full border-stone-700 w-full">
+                            className="flex lg:flex-col flex-row justify-center items-center lg:border-r-4 lg:border-b-0 border-b-4 h-full border-stone-700 w-full">
                             <p className="p-4">HEAD</p>
                         </div>
                         <div
@@ -25,7 +25,7 @@ export default function Node({ data, address ,isHead , isLastElem }) {
                 <div className={"h-auto flex lg:flex-row flex-col justify-center items-center"}>
                     <div className="flex lg:flex-row flex-col mx-2 justify-center items-center w-64 h-24 bg-red-500">
                         <div
-                            className="flex lg:flex-col flex-row justify-center items-center  lg:border-r-4 lg:border-b-0 border-r-4 h-full  border-stone-700 w-full">
+                            className="flex lg:flex-col flex-row justify-center items-center  lg:border-r-4 lg:border-b-0 border-b-4 h-full  border-stone-700 w-full">
                             <p className="p-4">data</p>
                         </div>
                         <div className="flex lg:flex-col flex-row justify-center items-center   w-full">
