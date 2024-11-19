@@ -1,8 +1,8 @@
 import Node from "./Node.jsx";
 
-export default function LinkedList({ linkedList = [], isExample }) {
+export default function LinkedList({ linkedList , isExample }) {
     return (
-        <>
+        <div className={"flex w-full flex-row justify-center"}>
             {isExample ? (
                 <>
                     <Node isHead={true} isExample={true} />
@@ -12,15 +12,15 @@ export default function LinkedList({ linkedList = [], isExample }) {
             ) : (
                 <>
                     <Node isHead={true} />
-                    {linkedList.map((item, index) => (
+                    {linkedList && linkedList.map((item, index) => (
                         <Node
-                            key={item.id || index} // Assuming item has a unique 'id' property
+                            key={item.id || index}
                             data={item.data}
                         />
                     ))}
                     <Node isLastElem={true} />
                 </>
             )}
-        </>
+        </div>
     );
 }
