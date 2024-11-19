@@ -2,7 +2,7 @@ import Node from "./Node.jsx";
 
 export default function LinkedList({ linkedList , isExample }) {
     return (
-        <div className={"flex w-full flex-row justify-center"}>
+        <div className={"flex w-full lg:flex-row flex-col justify-center"}>
             {isExample ? (
                 <>
                     <Node isHead={true} isExample={true} />
