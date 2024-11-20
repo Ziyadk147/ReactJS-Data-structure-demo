@@ -8,9 +8,9 @@ export default function LinkedListInteractive(){
     function handleClick(text){
         if(list.length <= 2) {
             if (text === "insert at End") {
-                setList((prevList) => [...prevList, {data: "Element"}])
+                setList((prevList) => [...prevList, {data: list.length , address: prevList}])
             } else if (text === "insert at beginning") {
-                setList((prevList) => [{data: "ElementBegin"}, ...prevList])
+                setList((prevList) => [{data: list.length}, ...prevList])
             }
         }
         if (text === "remove at beginning"){
@@ -23,7 +23,7 @@ export default function LinkedListInteractive(){
 
     }
 
-    const buttonList = [
+    const buttonList = [    
 
         {text:"insert at End" , onClick: handleClick},
         {text:"insert at beginning" , onClick: handleClick},
