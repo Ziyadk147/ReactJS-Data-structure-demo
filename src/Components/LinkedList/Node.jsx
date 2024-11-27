@@ -27,7 +27,7 @@ export default function Node({ data, isExample, address, isHead, isLastElem }) {
                         animate={{y: 0, opacity: 1}}
                         exit={{y: 10, opacity: 0}}  // Exit animation: down + fade out
                         transition={{duration: 0.5}}
-                        className={"flex flex-row"}
+                        className={"flex lg:flex-row flex-col"}
                     >
                         <div className="flex lg:flex-row flex-col mx-2 justify-center items-center w-64 h-24 bg-red-500">
                             <div className="flex lg:flex-col flex-row justify-center items-center lg:border-r-4 lg:border-b-0 border-b-4 h-full border-stone-700 w-full">
@@ -42,7 +42,6 @@ export default function Node({ data, isExample, address, isHead, isLastElem }) {
 
                 </div>
             )}
-
             {/* Last Node (NULL) */}
             {isLastElem && (
                 <div className="h-auto flex lg:flex-row flex-col justify-center items-center">
