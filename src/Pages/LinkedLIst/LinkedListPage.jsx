@@ -46,7 +46,7 @@ export default function LinkedListPage(){
                     <div className={"flex lg:flex-row flex-col justify-center items-center w-screen "}>
                         <LinkedList isExample={true} />
                     </div>
-                    <div className="flex flex-row justify-center mt-16 w-screen"
+                    <div className="flex lg:flex-row flex-col justify-center mt-16 w-screen"
                     >
                         <AnimatedDescription style={"flex flex-row lg:px-0 px-10 lg:whitespace-pre-wrap lg:text-2xl font-bold text-md  lg:w-3/4 text-center text-yellow-500"} >{linkedListText}</AnimatedDescription>
                         <AnimatedButtonList buttonList={buttonList}/>

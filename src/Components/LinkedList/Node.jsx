@@ -1,7 +1,7 @@
 import Arrow from "./Arrow.jsx";
-import {motion}  from "framer-motion";
+import { motion } from "framer-motion";
 
-export default function Node({ data, isExample, address, isHead, isLastElem }) {
+export default function Node({ data, isExample, address, isHead, isLastElem, isNew }) {
     return (
         <>
             {/* Head Node */}
@@ -23,25 +23,26 @@ export default function Node({ data, isExample, address, isHead, isLastElem }) {
             {!isHead && !isLastElem && (
                 <div className="h-auto flex lg:flex-row flex-col justify-center items-center">
                     <motion.div
-                        initial={{y: -10, opacity: 0}}
-                        animate={{y: 0, opacity: 1}}
-                        exit={{y: 10, opacity: 0}}  // Exit animation: down + fade out
-                        transition={{duration: 0.5}}
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 10, opacity: 0 }}  // Exit animation: down + fade out
+                        transition={{ duration: 0.5 }}
                         className={"flex lg:flex-row flex-col"}
+                        key={isNew ? `new-node-${data}` : `node-${data}`} // Stable key for newly added node
                     >
                         <div className="flex lg:flex-row flex-col mx-2 justify-center items-center w-64 h-24 bg-red-500">
                             <div className="flex lg:flex-col flex-row justify-center items-center lg:border-r-4 lg:border-b-0 border-b-4 h-full border-stone-700 w-full">
                                 <p className="p-4">{isExample ? "data" : data}</p>
                             </div>
                             <div className="flex lg:flex-col flex-row justify-center items-center w-full">
-                                <p className="p-4">address</p>
+                                <p className="p-4">{isExample ? "Address" : address}</p>
                             </div>
                         </div>
                         {!isLastElem && <Arrow />}
                     </motion.div>
-
                 </div>
             )}
+
             {/* Last Node (NULL) */}
             {isLastElem && (
                 <div className="h-auto flex lg:flex-row flex-col justify-center items-center">

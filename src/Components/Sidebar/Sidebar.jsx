@@ -12,7 +12,7 @@ export default function Sidebar({ buttonList }) {
         <>
             {/* Bottom Bar */}
             <div
-                className={`fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 transition-all duration-300 ${
+                className={`fixed bottom-0 left-0 z-10 w-full bg-gray-800 text-white p-4 transition-all duration-300 ${
                     isOpen ? 'h-auto' : 'h-12'
                 }`}
             >
