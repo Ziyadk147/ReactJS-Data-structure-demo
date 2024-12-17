@@ -14,7 +14,7 @@ export default function About() {
     ];
 
     return (
-        <div className="flex flex-row justify-center items-center w-screen h-screen">
+        <div className="flex flex-row justify-center items-center w-full h-full">
             <div className="flex flex-col justify-center items-center">
                 {/* Text Animations */}
                 <motion.h1
