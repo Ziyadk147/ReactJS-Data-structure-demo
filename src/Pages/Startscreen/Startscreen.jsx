@@ -63,7 +63,13 @@ function Startscreen({onClick}) {
                                     Linked List
                                 </button>
                             </li>
-
+                            <li className={"flex lg:flex-col flex-row mx-2"}>
+                                <button className={"rounded-3xl bg-yellow-500  w-full lg:m-0 my-1 px-10 font-bold h-14"}
+                                    onClick={ ()  => {onClick("about")}}
+                                >
+                                    About the Developer
+                                </button>
+                            </li>
                         </motion.ul>
                     </div>
                 </motion.div>

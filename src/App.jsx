@@ -5,6 +5,7 @@ import Navbar from "./Pages/Navbar/Navbar.jsx";
 import QueuePage from "./Pages/QueuePage/QueuePage.jsx";
 import LinkedListPage from "./Pages/LinkedLIst/LinkedListPage.jsx";
 import { ToastContainer, toast } from 'react-toastify';
+import About from "./Pages/About/About.jsx";
 
 export default function App(){
     const [selectedPage , setSelectedPage] = useState()
@@ -42,7 +43,13 @@ export default function App(){
                 </>
 
             ) }
+            {selectedPage === "about" && (
+                <>
+                    <Navbar onclick={handleClick} />
+                    <About />
+                </>
 
+            )}
 
         </div>
     )
