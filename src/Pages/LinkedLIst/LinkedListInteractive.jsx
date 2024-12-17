@@ -1,6 +1,7 @@
 import Sidebar from "../../Components/Sidebar/Sidebar.jsx";
 import LinkedList from "../../Components/LinkedList/LinkedList.jsx";
 import {useState} from "react";
+import { toast } from "react-toastify";
 
 export default function LinkedListInteractive(){
 
@@ -14,31 +15,65 @@ export default function LinkedListInteractive(){
         };
 
         if (text === "insert at End") {
-            setList((prevList) => [...prevList, newNode]);  // Insert at the end with newNode
+            if(list.length <= 5){
+                setList((prevList) => [...prevList, newNode]);  // Insert at the end with newNode
+            }
+            else{
+                toast("The list Limit is set to 5 elements")
+            }
         }
         else if (text === "insert at beginning") {
-            setList((prevList) => [newNode, ...prevList]);  // Insert at the beginning with newNode
+            if(list.length <= 5){
+                setList((prevList) => [newNode, ...prevList]);  // Insert at the end with newNode
+            }
+            else{
+                toast("The list Limit is set to 5 elements")
+            }
+              // Insert at the beginning with newNode
         }
         else if (text === "insert at middle") {
-            const middleIndex = Math.floor(list.length / 2);  // Find the middle index
-            setList((prevList) => [
-                ...prevList.slice(0, middleIndex),  // Before middle
-                newNode,  // Insert new node at the middle
-                ...prevList.slice(middleIndex),  // After middle
-            ]);
+            if(list.length <= 5){
+                const middleIndex = Math.floor(list.length / 2);  // Find the middle index
+                setList((prevList) => [
+                    ...prevList.slice(0, middleIndex),  // Before middle
+                    newNode,  // Insert new node at the middle
+                    ...prevList.slice(middleIndex),  // After middle
+                ]);
+            }
+            else{
+                toast("The list Limit is set to 5 elements")
+            }
+            
         }
         else if (text === "remove at beginning") {
-            setList((prevList) => prevList.slice(1));  // Remove the first element
+            if(list.length > 0){
+                setList((prevList) => prevList.slice(1));
+            }
+            else{
+                toast("The list is Empty")
+            }
+
         }
         else if (text === "remove at end") {
-            setList((prevList) => prevList.slice(0, prevList.length - 1));  // Remove the last element
+            if(list.length > 0){
+                setList((prevList) => prevList.slice(0, prevList.length - 1)); 
+            }
+            else{
+                toast("The list is Empty")
+            }
         }
         else if (text === "remove at middle") {
-            const middleIndex = Math.floor(list.length / 2);  // Find the middle index
-            setList((prevList) => [
-                ...prevList.slice(0, middleIndex),  // Take elements before the middle
-                ...prevList.slice(middleIndex + 1),  // Take elements after the middle (skip the middle)
-            ]);
+            if(list.length > 0){
+                const middleIndex = Math.floor(list.length / 2);  // Find the middle index
+                setList((prevList) => [
+                    ...prevList.slice(0, middleIndex),  // Take elements before the middle
+                    ...prevList.slice(middleIndex + 1),  // Take elements after the middle (skip the middle)
+                ]); 
+            }
+            else{
+                toast("The list is Empty")
+            }
+            
         }
     }
 
