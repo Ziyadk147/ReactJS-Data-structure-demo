@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from "react";
 import Queue from "../../Components/Queue/Queue.jsx";
 import AnimatedButtonList from "../../Components/AnimatedButtonList/AnimatedButtonList.jsx";
 import AnimatedDescription from "../../Components/AnimatedDescription/AnimatedDescription.jsx";
+import { toast } from "react-toastify";
 
 export default function QueuePage({onClick}){
     const [triggerChange , setTriggerChange] = useState(false);
@@ -24,6 +25,11 @@ export default function QueuePage({onClick}){
                     const newCount = countRef.current++;
                     return [ ...prevArr ,  newCount ]; // Add to the front of the array
                 }
+                else{
+                    toast(
+                        "Queue is Full"
+                    )
+                }
                 return prevArr; // Don't modify if the queue is full
             });
         } else if (value === "Dequeue") {
@@ -31,6 +37,11 @@ export default function QueuePage({onClick}){
                 if (prevArr.length > 0) {
                     countRef.current--; // Optionally update countRef
                     return prevArr.slice(1); // Remove the first element of the array
+                }
+                else{
+                    toast(
+                        "Queue is Empty"
+                    )
                 }
                 return prevArr; // Don't modify if the queue is empty
             });

@@ -5,7 +5,7 @@ import AnimatedButtonList from "../../Components/AnimatedButtonList/AnimatedButt
 import AnimatedDescription from "../../Components/AnimatedDescription/AnimatedDescription.jsx";
 import 'prismjs/themes/prism-tomorrow.css'; // or any theme you prefer
 import Prism from 'prismjs'
-import Codeblock from "../../Components/CodeBlock/Codeblock.jsx";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Stackpage({onClick}) {
 
@@ -26,11 +26,21 @@ export default function Stackpage({onClick}) {
     }, []);
 
     function handleClick(value){
-        if(value === "push" && stackArray.length <= 4){
-            setStackArray((prevState) => [...prevState , prevState.length + 1])
+        if(value === "push"){
+            if(stackArray.length <= 4){
+                setStackArray((prevState) => [...prevState , prevState.length + 1])
+            }
+            else{
+                toast('Stack is Full')
+            }
         }
         else if(value === "pop"){
-            setStackArray( ( prevState ) => prevState.slice(0 , -1) )
+            if(stackArray.length > 0){
+                setStackArray( ( prevState ) => prevState.slice(0 , -1) )
+            }
+            else{
+                toast("Stack is Empty")
+            }
         }
 
     }
