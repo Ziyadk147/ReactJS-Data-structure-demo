@@ -17,7 +17,7 @@ export default function LinkedList({ linkedList, isExample }) {
                             key={item.id} // Use the unique id of the item as key
                             data={item.data}
                             address={item.address}
-                            isNew={item.isNew} // Only pass `isNew` for animation if needed
+                            isNew={item.isNew}
                         />
                     ))}
                     <Node isLastElem={true} />

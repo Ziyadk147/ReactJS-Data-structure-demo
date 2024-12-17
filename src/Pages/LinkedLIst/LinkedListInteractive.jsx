@@ -57,7 +57,7 @@ export default function LinkedListInteractive(){
 
     ]
     return (
-        <div className={"flex lg:flex-row flex-col w-screen p-0 h-screen"}>
+        <div className={"flex lg:flex-row flex-col w-screen p-0 h-full"}>
             <div className={" w-fit flex flex-row"}>
                 <Sidebar buttonList={buttonList}/>
             </div>
